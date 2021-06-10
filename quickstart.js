@@ -104,21 +104,39 @@ function listEvents(auth) {
 
 async function callback(auth) {
   try {
-    const timetable = fs
-      .readFileSync("./timetable")
-      .toString()
-      // Remove markdown table artefacts
-      .replace(/\|/g, "")
-      .replace(/\-{2,}/g, "")
-      .split("\n")
-      // Remove whitespace
-      .map((l) => l.replace(/\s+/g, " ").trim())
-      // Filter empty lines
-      .filter((x) => !!x);
+    const timings = [
+      [
+        "at 7:50AM for 50 minutes",
+        "at 8:50AM for 40 minutes",
+        "at 9:50AM for 40 minutes",
+        "at 10:40AM for 40 minutes",
+        "at 11:35AM for 40 minutes",
+      ],
+      [
+        "at 7:40AM for 10 minutes",
+        "at 8:00AM for 40 minutes",
+        "at 8:50AM for 40 minutes",
+        "at 9:50AM for 40 minutes",
+        "at 10:40AM for 40 minutes",
+        "at 11:30AM for 40 minutes",
+      ],
+    ];
+
+    const timetable = JSON.parse(
+      fs.readFileSync("./timetable.json").toString()
+    );
+
+    const events = Object.keys(timetable)
+      .map((day) =>
+        timetable[day].map(
+          (class_, idx) => `${class_} on ${day} ${timings[1][idx]}`
+        )
+      )
+      .flat();
 
     const calendar = google.calendar({ version: "v3", auth });
 
-    for (let text of timetable) {
+    for (let text of events) {
       console.log(text, "adding");
       await calendar.events.quickAdd({ auth, calendarId: "primary", text });
       console.log(text, "added");
