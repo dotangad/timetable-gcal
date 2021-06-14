@@ -129,7 +129,10 @@ async function callback(auth) {
     const events = Object.keys(timetable)
       .map((day) =>
         timetable[day].map(
-          (class_, idx) => `${class_} on ${day} ${timings[1][idx]}`
+          (class_, idx) =>
+            `${class_} on ${day} ${
+              day === "Monday" ? timings[0][idx] : timings[1][idx]
+            }`
         )
       )
       .flat();

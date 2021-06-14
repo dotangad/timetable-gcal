@@ -1,18 +1,3 @@
 {
-  "Thursday": [
-    "Homeroom",
-    "Computer Science",
-    "English",
-    "Physics",
-    "Economics",
-    "Math"
-  ],
-  "Friday": [
-    "Homeroom",
-    "Computer Science",
-    "Physics",
-    "English",
-    "Economics",
-    "Math"
-  ]
+  "Monday": ["Economics MT", "Computer Science", "Physics", "Economics", "Math"]
 }
