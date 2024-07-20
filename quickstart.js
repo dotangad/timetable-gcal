@@ -106,19 +106,19 @@ async function callback(auth) {
   try {
     const timings = [
       [
-        "at 7:50AM for 50 minutes",
-        "at 8:50AM for 40 minutes",
-        "at 9:50AM for 40 minutes",
-        "at 10:40AM for 40 minutes",
-        "at 11:35AM for 40 minutes",
+        "at 7:50AM for 100 minutes",
+        "at 10:45AM for 35 minutes",
+        "at 11:30AM for 35 minutes",
+        "at 12:15AM for 35 minutes",
+        "at 13:00PM for 35 minutes",
       ],
       [
         "at 7:40AM for 10 minutes",
-        "at 8:00AM for 40 minutes",
-        "at 8:50AM for 40 minutes",
-        "at 9:50AM for 40 minutes",
-        "at 10:40AM for 40 minutes",
-        "at 11:30AM for 40 minutes",
+        "at 8:00AM for 45 minutes",
+        "at 9:00AM for 45 minutes",
+        "at 10:05AM for 45 minutes",
+        "at 11:05AM for 45 minutes",
+        "at 12:05PM for 45 minutes",
       ],
     ];
 
